@@ -282,21 +282,24 @@ def huffman_decoding(data,root):
 
 #     print("\nDecoded: {}".format(decoded))
 
-
 if __name__ == "__main__":
-    codes = {}
+    
+    sentences = []
+    sentences.append("The bird is the word")
+    sentences.append("Sebastian Thrun (born May 14, 1967) is an entrepreneur, educator, and computer scientist from Germany. He is CEO of Kitty Hawk Corporation, and chairman and co-founder of Udacity. Before that, he was a Google VP and Fellow, a Professor of Computer Science at Stanford University, and before that at Carnegie Mellon University. At Google, he founded Google X and Google's self-driving car team. He is also an Adjunct Professor at Stanford University and at Georgia Tech.[4]")
+    sentences.append("Hello")
+    sentences.append("!?")
+    sentences.append("54")
 
-    a_great_sentence = "The bird is the word"
+    for sentence in sentences:
+        print("--"*10)
+        print ("The size of the data is: {}".format(sys.getsizeof(sentence)))
+        print ("The content of the data is: {}\n".format(sentence))
+        
+        encoded_data, tree = huffman_encoding(sentence)
+        print ("The size of the encoded data is: {}".format(sys.getsizeof(int(encoded_data, base=2))))
+        print ("The content of the encoded data is: {}\n".format(encoded_data))
 
-    print ("The size of the data is: {}\n".format(sys.getsizeof(a_great_sentence)))
-    print ("The content of the data is: {}\n".format(a_great_sentence))
-
-    encoded_data, tree = huffman_encoding(a_great_sentence)
-
-    print ("The size of the encoded data is: {}\n".format(sys.getsizeof(int(encoded_data, base=2))))
-    print ("The content of the encoded data is: {}\n".format(encoded_data))
-
-    decoded_data = huffman_decoding(encoded_data, tree)
-
-    print ("The size of the decoded data is: {}\n".format(sys.getsizeof(decoded_data)))
-    print ("The content of the encoded data is: {}\n".format(decoded_data))
+        decoded_data = huffman_decoding(encoded_data, tree)
+        print ("The size of the decoded data is: {}".format(sys.getsizeof(decoded_data)))
+        print ("The content of the encoded data is: {}\n".format(decoded_data))

@@ -36,3 +36,9 @@ files = find_files(".c", ".")
 
 for item in files:
 	print(item)
+
+# Returns
+# .\testdir\subdir1\a.c
+# .\testdir\subdir3\subsubdir1\b.c
+# .\testdir\subdir5\a.c
+# .\testdir\t1.c
