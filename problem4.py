@@ -116,3 +116,36 @@ people = ["Mimi","Papa", "Rod", "Suzzie", "Rebecca", "Wayne", "Sue", "Sarah", "M
 for person in people:
     exist = is_user_in_group(person, grandparents)
     print("{} - {}".format(person, exist))
+
+# Mimi - True
+# Papa - True
+# Rod - True
+# Suzzie - True
+# Rebecca - True
+# Wayne - True
+# Sue - True
+# Sarah - True
+# Melissa - True
+# Andrew - True
+# Steve - True
+# Jenny - True
+# Kristina - True
+# Matthew - True
+# Jacob - True
+# Veronica - True
+# Stu - True
+# Cindy - True
+# Alex - True
+# Nate - True
+# Brian - True
+# Lauri - True
+# Nick - True
+# Liz - True
+# Leigh - False
+# Joanie - False
+# Jill - False
+# Pat - False
+# Mickey - False
+# Big Dog - False
+#  - False             Edge case
+# big-dog - False      Edge case
