@@ -99,8 +99,9 @@ for i in element_1:
 for i in element_2:
     linked_list_2.append(i)
 
-print (union(linked_list_1,linked_list_2))
-print (intersection(linked_list_1,linked_list_2))
+print ("Union: {}".format(union(linked_list_1,linked_list_2)))
+print ("Intersection: {}".format(intersection(linked_list_1,linked_list_2)))
+print()
 
 # Test case 2
 
@@ -116,5 +117,34 @@ for i in element_1:
 for i in element_2:
     linked_list_4.append(i)
 
-print (union(linked_list_3,linked_list_4))
-print (intersection(linked_list_3,linked_list_4))
+print ("Union: {}".format(union(linked_list_3,linked_list_4)))
+print ("Intersection: {}".format(intersection(linked_list_3,linked_list_4)))
+print()
+
+# Test case 3
+
+linked_list_5 = LinkedList()
+linked_list_6 = LinkedList()
+
+element_1 = []
+element_2 = [1,'a','!']
+
+for i in element_1:
+    linked_list_5.append(i)
+
+for i in element_2:
+    linked_list_6.append(i)
+
+print ("Union: {}".format(union(linked_list_5,linked_list_6)))
+print ("Intersection: {}".format(intersection(linked_list_6,linked_list_5)))
+
+
+# Output:
+# Union: 32 -> 65 -> 2 -> 35 -> 3 -> 4 -> 6 -> 1 -> 9 -> 11 -> 21 ->
+# Intersection: 4 -> 21 -> 6 ->
+
+# Union: 65 -> 2 -> 35 -> 3 -> 4 -> 6 -> 1 -> 7 -> 8 -> 9 -> 11 -> 21 -> 23 ->
+# Intersection:
+
+# Union: ! -> 1 -> a ->
+# Intersection:
