@@ -71,8 +71,45 @@ class BlockChain:
 
 ethereum = BlockChain()
 
-for i in range(1,6):
+items = [1, 2, None, "five", 6.0, (1,2), [1,2,3]]
+
+for i in items:
     ethereum.add_block(i)
     time.sleep(0.01)
 
 print(ethereum)
+
+# Timestamp: 2021-08-18_165101.978344
+# Data: 1
+# Hash:  a068ef1f7c1fdf84b2297c98d35be0b19252a0bbdc3adb50d9d25389781c7ee1
+# Previous hash:  0
+
+# Timestamp: 2021-08-18_165102.001775
+# Data: 2
+# Hash:  24463d682c4e5f27ab1e11533aab8374be80b395ca14f67877022ee174a469e6
+# Previous hash:  a068ef1f7c1fdf84b2297c98d35be0b19252a0bbdc3adb50d9d25389781c7ee1
+
+# Timestamp: 2021-08-18_165102.017602
+# Data: None
+# Hash:  10e06bcb96328c6d5d20c2a6a33a3e04999e5455f1880e17091e557e72f10eec
+# Previous hash:  24463d682c4e5f27ab1e11533aab8374be80b395ca14f67877022ee174a469e6
+
+# Timestamp: 2021-08-18_165102.032722
+# Data: five
+# Hash:  348ec98f72928da940ea916e0bb71687ba26aca8ca72809feb6daa418758c738
+# Previous hash:  10e06bcb96328c6d5d20c2a6a33a3e04999e5455f1880e17091e557e72f10eec
+
+# Timestamp: 2021-08-18_165102.048153
+# Data: 6.0
+# Hash:  8c9963820575a8ee6fe5208c288ad32355ce9f026338a96fd03f8973966e7d53
+# Previous hash:  348ec98f72928da940ea916e0bb71687ba26aca8ca72809feb6daa418758c738
+
+# Timestamp: 2021-08-18_165102.063453
+# Data: (1, 2)
+# Hash:  36308acd3dd94bb4018c80591a737ef90f5a5f1c28b89fe00c562978f3186322
+# Previous hash:  8c9963820575a8ee6fe5208c288ad32355ce9f026338a96fd03f8973966e7d53
+
+# Timestamp: 2021-08-18_165102.078202
+# Data: [1, 2, 3]
+# Hash:  d3f3982ded4405c1a56afc25f1ee2705ff869fada3b9642794141ed9cf9c2e8b
+# Previous hash:  36308acd3dd94bb4018c80591a737ef90f5a5f1c28b89fe00c562978f3186322
