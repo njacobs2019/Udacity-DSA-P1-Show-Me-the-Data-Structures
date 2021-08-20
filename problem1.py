@@ -10,34 +10,34 @@ class LRU_Cache(object):
     def get(self, key=None):
         # Retrieve item from provided key. Return -1 if nonexistent. 
         if key in self.cache:
-        	self.cache.move_to_end(key, last=False)
-        	return self.cache[key]
+            self.cache.move_to_end(key, last=False)
+            return self.cache[key]
         else:
-        	return -1
+            return -1
 
     def set(self, key=None, value=None):
         # Set the value if the key is not present in the cache. If the cache is at capacity remove the oldest item. 
         
         # Key is already in dictionary
         if key in self.cache:
-        	self.cache[key]=value
-        	self.cache.move_to_end(key, last=False)
+            self.cache[key]=value
+            self.cache.move_to_end(key, last=False)
 
         # Key is not in dictionary
         else:
-        	# If self.max_size is not an integer or less than 1
-        	if type(self.max_size)!=type(1) or self.max_size<1:
-        		pass
-        	# Add the key-value pair when the dictionary is full
-        	elif len(self.cache)>=self.max_size:
-        		self.cache.popitem()
-        		self.cache[key]=value
-        		self.cache.move_to_end(key, last=False)
+            # If self.max_size is not an integer or less than 1
+            if type(self.max_size)!=type(1) or self.max_size<1:
+                pass
+            # Add the key-value pair when the dictionary is full
+            elif len(self.cache)>=self.max_size:
+                self.cache.popitem()
+                self.cache[key]=value
+                self.cache.move_to_end(key, last=False)
 
-        	# Add the key-value pair when the dictionary is not full
-        	else:
-        		self.cache[key]=value
-        		self.cache.move_to_end(key, last=False)
+            # Add the key-value pair when the dictionary is not full
+            else:
+                self.cache[key]=value
+                self.cache.move_to_end(key, last=False)
 
 if __name__=='__main__':
     # Test Case 1:
