@@ -26,16 +26,16 @@ def find_files(suffix, path):
     return _find_files(suffix, path, [])
 
 def _find_files(suffix, path, file_list):
-	explore_list = os.listdir(path)
+  explore_list = os.listdir(path)
 
-	for address in explore_list:
-		address = os.path.join(path,address)
-		if os.path.isfile(address) and address.endswith(suffix):
-			file_list.append(address)
-		elif os.path.isdir(address):
-			_find_files(suffix, address, file_list)
-	
-	return file_list
+  for address in explore_list:
+    address = os.path.join(path,address)
+    if os.path.isfile(address) and address.endswith(suffix):
+      file_list.append(address)
+    elif os.path.isdir(address):
+      _find_files(suffix, address, file_list)
+  
+  return file_list
 
 
 if __name__=='__main__':
@@ -44,7 +44,7 @@ if __name__=='__main__':
   files = find_files(".c", ".")
 
   for item in files:
-  	print(item)
+    print(item)
 
   # Returns
   # .\testdir\subdir1\a.c
