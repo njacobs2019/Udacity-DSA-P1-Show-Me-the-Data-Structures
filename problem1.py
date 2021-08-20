@@ -25,8 +25,11 @@ class LRU_Cache(object):
 
         # Key is not in dictionary
         else:
+        	# If self.max_size is not an integer or less than 1
+        	if type(self.max_size)!=type(1) or self.max_size<1:
+        		pass
         	# Add the key-value pair when the dictionary is full
-        	if len(self.cache)>=self.max_size:
+        	elif len(self.cache)>=self.max_size:
         		self.cache.popitem()
         		self.cache[key]=value
         		self.cache.move_to_end(key, last=False)
@@ -36,6 +39,9 @@ class LRU_Cache(object):
         		self.cache[key]=value
         		self.cache.move_to_end(key, last=False)
 
+
+# Test Case 1:
+print("\nTest Case 1:")
 our_cache = LRU_Cache(5)
 
 our_cache.set(1, 1)
@@ -64,3 +70,31 @@ print(our_cache.get())           # return None
 print(our_cache.get(0))          # return 0
 print(our_cache.get(0.1))        # return 0.3
 print(our_cache.get("bob"))      # return "bill"
+
+# Test Case 2:
+print("\nTest Case 2:")
+new_cache = LRU_Cache(0)
+
+new_cache.set(1, 1)
+new_cache.set(2, 2)
+new_cache.set(3, 3)
+new_cache.set(4, 4)
+
+print(new_cache.get(1))      # returns -1, element is not present in the cache
+print(new_cache.get(2))      # returns -1, element is not present in the cache
+print(new_cache.get(9))      # returns -1, element is not present in the cache
+print(new_cache.get(3))      # returns -1, element is not present in the cache
+
+# Test Case 2:
+print("\nTest Case 3:")
+newest_cache = LRU_Cache(None)
+
+newest_cache.set(1, 1)
+newest_cache.set(2, 2)
+newest_cache.set(3, 3)
+newest_cache.set(4, 4)
+
+print(newest_cache.get(1))      # returns -1, element is not present in the cache
+print(newest_cache.get(2))      # returns -1, element is not present in the cache
+print(newest_cache.get(9))      # returns -1, element is not present in the cache
+print(newest_cache.get(3))      # returns -1, element is not present in the cache
