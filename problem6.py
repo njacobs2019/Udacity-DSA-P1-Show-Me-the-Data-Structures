@@ -85,66 +85,55 @@ def intersection(llist_1, llist_2):
         out.append(elem)
     return out
 
-# Test case 1
+if __name__ == '__main__':
+    # Test case 1
 
-linked_list_1 = LinkedList()
-linked_list_2 = LinkedList()
+    linked_list_1 = LinkedList()
+    linked_list_2 = LinkedList()
 
-element_1 = [3,2,4,35,6,65,6,4,3,21]
-element_2 = [6,32,4,9,6,1,11,21,1]
+    element_1 = [3,2,4,35,6,65,6,4,3,21,'a','!']
+    element_2 = [6,32,4,9,6,1,11,21,1]
 
-for i in element_1:
-    linked_list_1.append(i)
+    for i in element_1:
+        linked_list_1.append(i)
 
-for i in element_2:
-    linked_list_2.append(i)
+    for i in element_2:
+        linked_list_2.append(i)
 
-print ("Union: {}".format(union(linked_list_1,linked_list_2)))
-print ("Intersection: {}".format(intersection(linked_list_1,linked_list_2)))
-print()
+    print ("Union: {}".format(union(linked_list_1,linked_list_2)))
+    print ("Intersection: {}".format(intersection(linked_list_1,linked_list_2)))
+    print()
 
-# Test case 2
+    # Output:
+    # Union: 32 -> 65 -> 2 -> 35 -> 3 -> 4 -> 6 -> 1 -> 9 -> 11 -> ! -> a -> 21 -> 
+    # Intersection: 4 -> 21 -> 6 -> 
 
-linked_list_3 = LinkedList()
-linked_list_4 = LinkedList()
+    # Test case 2
 
-element_1 = [3,2,4,35,6,65,6,4,3,23]
-element_2 = [1,7,8,9,11,21,1]
+    linked_list_3 = LinkedList()
+    linked_list_4 = LinkedList()
 
-for i in element_1:
-    linked_list_3.append(i)
+    element_4 = [1,7,8,9,11,21,1]
 
-for i in element_2:
-    linked_list_4.append(i)
+    for i in element_4:
+        linked_list_4.append(i)
 
-print ("Union: {}".format(union(linked_list_3,linked_list_4)))
-print ("Intersection: {}".format(intersection(linked_list_3,linked_list_4)))
-print()
+    print ("Union: {}".format(union(linked_list_3,linked_list_4)))
+    print ("Intersection: {}".format(intersection(linked_list_3,linked_list_4)))
+    print()
 
-# Test case 3
+    # Output
+    # Union: 1 -> 7 -> 8 -> 9 -> 11 -> 21 -> 
+    # Intersection: 
 
-linked_list_5 = LinkedList()
-linked_list_6 = LinkedList()
+    # Test case 3
 
-element_1 = []
-element_2 = [1,'a','!']
+    linked_list_5 = LinkedList()
+    linked_list_6 = LinkedList()
 
-for i in element_1:
-    linked_list_5.append(i)
+    print ("Union: {}".format(union(linked_list_5,linked_list_6)))
+    print ("Intersection: {}".format(intersection(linked_list_6,linked_list_5)))
 
-for i in element_2:
-    linked_list_6.append(i)
-
-print ("Union: {}".format(union(linked_list_5,linked_list_6)))
-print ("Intersection: {}".format(intersection(linked_list_6,linked_list_5)))
-
-
-# Output:
-# Union: 32 -> 65 -> 2 -> 35 -> 3 -> 4 -> 6 -> 1 -> 9 -> 11 -> 21 ->
-# Intersection: 4 -> 21 -> 6 ->
-
-# Union: 65 -> 2 -> 35 -> 3 -> 4 -> 6 -> 1 -> 7 -> 8 -> 9 -> 11 -> 21 -> 23 ->
-# Intersection:
-
-# Union: ! -> 1 -> a ->
-# Intersection:
+    # Output:
+    # Union: 
+    # Intersection: 
