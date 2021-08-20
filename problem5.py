@@ -46,6 +46,7 @@ class BlockChain:
         self.length = 0
 
     def add_block(self,data):
+        time.sleep(0.01)
         # Case we are adding the first block
         if self.genesis==None:
             new_block = Block(data,0)
@@ -63,53 +64,98 @@ class BlockChain:
     def __repr__(self):
         s=""
         current = self.genesis
+
+        if current is None:
+            s+="<empty>\n"
+
         while current:
             s += str(current)
             s += "\n"
             current = current.next
         return s
 
-ethereum = BlockChain()
 
-items = [1, 2, None, "five", 6.0, (1,2), [1,2,3]]
+if __name__=='__main__':
 
-for i in items:
-    ethereum.add_block(i)
-    time.sleep(0.01)
+    # Test Case 1:  Standard use with many different types of data in the blocks
+    b1 = BlockChain()
+    print("\nFirst test case:")
 
-print(ethereum)
+    items = [1, 2, None, "five", 6.0, (1,2), [1,2,3]]
+    for i in items:
+        b1.add_block(i)
 
-# Timestamp: 2021-08-18_165101.978344
-# Data: 1
-# Hash:  a068ef1f7c1fdf84b2297c98d35be0b19252a0bbdc3adb50d9d25389781c7ee1
-# Previous hash:  0
+    print(b1)
 
-# Timestamp: 2021-08-18_165102.001775
-# Data: 2
-# Hash:  24463d682c4e5f27ab1e11533aab8374be80b395ca14f67877022ee174a469e6
-# Previous hash:  a068ef1f7c1fdf84b2297c98d35be0b19252a0bbdc3adb50d9d25389781c7ee1
+    # Output:
+    # First test case:
+    # Timestamp: 2021-08-19_223553.648985
+    # Data: 1
+    # Hash:  d2888f0ce210c17e6bed160d7ad6c957cc3f1d4b5a48a7d8808bd2b752d70b0a
+    # Previous hash:  0
 
-# Timestamp: 2021-08-18_165102.017602
-# Data: None
-# Hash:  10e06bcb96328c6d5d20c2a6a33a3e04999e5455f1880e17091e557e72f10eec
-# Previous hash:  24463d682c4e5f27ab1e11533aab8374be80b395ca14f67877022ee174a469e6
+    # Timestamp: 2021-08-19_223553.659631
+    # Data: 2
+    # Hash:  48f16e648f35546b54c41d561c98de3ebac3bef0eda709a27696dbb84764ab0d
+    # Previous hash:  d2888f0ce210c17e6bed160d7ad6c957cc3f1d4b5a48a7d8808bd2b752d70b0a
 
-# Timestamp: 2021-08-18_165102.032722
-# Data: five
-# Hash:  348ec98f72928da940ea916e0bb71687ba26aca8ca72809feb6daa418758c738
-# Previous hash:  10e06bcb96328c6d5d20c2a6a33a3e04999e5455f1880e17091e557e72f10eec
+    # Timestamp: 2021-08-19_223553.670256
+    # Data: None
+    # Hash:  8793f098860f334d76c3e7a2f3f1c0ec4e801a5f1cd296c1d2cc719d64961e71
+    # Previous hash:  48f16e648f35546b54c41d561c98de3ebac3bef0eda709a27696dbb84764ab0d
 
-# Timestamp: 2021-08-18_165102.048153
-# Data: 6.0
-# Hash:  8c9963820575a8ee6fe5208c288ad32355ce9f026338a96fd03f8973966e7d53
-# Previous hash:  348ec98f72928da940ea916e0bb71687ba26aca8ca72809feb6daa418758c738
+    # Timestamp: 2021-08-19_223553.680885
+    # Data: five
+    # Hash:  babb53239b9cdd1a0119c27f7b856c9195753bdb68ed6ec75173ec0407659a0e
+    # Previous hash:  8793f098860f334d76c3e7a2f3f1c0ec4e801a5f1cd296c1d2cc719d64961e71
 
-# Timestamp: 2021-08-18_165102.063453
-# Data: (1, 2)
-# Hash:  36308acd3dd94bb4018c80591a737ef90f5a5f1c28b89fe00c562978f3186322
-# Previous hash:  8c9963820575a8ee6fe5208c288ad32355ce9f026338a96fd03f8973966e7d53
+    # Timestamp: 2021-08-19_223553.691615
+    # Data: 6.0
+    # Hash:  b4da39a8036e18c5e4c54f8fde98dfd4fbf2688cfd7bfa7e287e2c9d34226c8f
+    # Previous hash:  babb53239b9cdd1a0119c27f7b856c9195753bdb68ed6ec75173ec0407659a0e
 
-# Timestamp: 2021-08-18_165102.078202
-# Data: [1, 2, 3]
-# Hash:  d3f3982ded4405c1a56afc25f1ee2705ff869fada3b9642794141ed9cf9c2e8b
-# Previous hash:  36308acd3dd94bb4018c80591a737ef90f5a5f1c28b89fe00c562978f3186322
+    # Timestamp: 2021-08-19_223553.702225
+    # Data: (1, 2)
+    # Hash:  b18aac19e4904d51504f781faf9456463a021453138debd77b8ff1366f228bc9
+    # Previous hash:  b4da39a8036e18c5e4c54f8fde98dfd4fbf2688cfd7bfa7e287e2c9d34226c8f
+
+    # Timestamp: 2021-08-19_223553.713140
+    # Data: [1, 2, 3]
+    # Hash:  2b1e2d4cf1dbc286ead17b3d808cd27bda62d86fd4722bb0d9d8401b951c260d
+    # Previous hash:  b18aac19e4904d51504f781faf9456463a021453138debd77b8ff1366f228bc9
+
+
+
+    # Test Case 2:  Empty chain
+    b2 = BlockChain()
+    print("\nSecond test case:")
+    print(b2)
+
+    # Output:
+    # <empty>
+
+    # Test Case 3:  Trying to add blocks sequentially to get same time
+    b3 = BlockChain()
+    print("\nThird test case:")
+    
+    items = [1, 2, 3]
+    for i in items:
+        b3.add_block(i)
+
+    print(b3)
+
+    # Output:
+    # Timestamp: 2021-08-19_223553.723594
+    # Data: 1
+    # Hash:  15e34a9f1c261c33f3655902a0b935b1d827ebfa10ffb29051d7edc9a8eb785f
+    # Previous hash:  0
+
+    # Timestamp: 2021-08-19_223553.734276
+    # Data: 2
+    # Hash:  a8a52ac0e028107620262f08f0fc36c9858ad77c35458d98e4dbd036b61ec7be
+    # Previous hash:  15e34a9f1c261c33f3655902a0b935b1d827ebfa10ffb29051d7edc9a8eb785f
+
+    # Timestamp: 2021-08-19_223553.744950
+    # Data: 3
+    # Hash:  1912c821d7c650eba52457e2d7c909a5855e1d8a364b641333c97b4e424324cb
+    # Previous hash:  a8a52ac0e028107620262f08f0fc36c9858ad77c35458d98e4dbd036b61ec7be
